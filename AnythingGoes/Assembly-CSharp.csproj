@@ -77,12 +77,15 @@
     <Compile Include="Assets\RockVR\Video\Scripts\VideoCaptureCtrl.cs" />
     <Compile Include="Assets\RockVR\Video\Scripts\VideoPlayer.cs" />
     <Compile Include="Assets\Scripts\Communication\EventProperties\GameEventProperties.cs" />
+    <Compile Include="Assets\Scripts\Communication\EventProperties\GameUIEventProperties.cs" />
     <Compile Include="Assets\Scripts\Communication\Events\GameEvents.cs" />
+    <Compile Include="Assets\Scripts\Communication\Events\GameUIEvents.cs" />
     <Compile Include="Assets\Scripts\Environment\InstantKillTrigger.cs" />
     <Compile Include="Assets\Scripts\GameResources\CheckPoint\CheckPoint.cs" />
     <Compile Include="Assets\Scripts\GameResources\CheckPoint\CheckPointController.cs" />
     <Compile Include="Assets\Scripts\Player\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Player\GrapplingGun.cs" />
+    <Compile Include="Assets\Scripts\Player\HUD\WeaponCharge.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAttack.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerInput.cs" />
