@@ -5,6 +5,8 @@ using System;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D thisRigid;
+    [SerializeField]
+    private float maxForce;
     // Use this for initialization
     void Start()
     {
@@ -19,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
     internal void ApplyForce(float v, Vector2 targetDirection)
     {
-
+        thisRigid.AddForce((-1*targetDirection )* (maxForce * v),ForceMode2D.Impulse);
         // apply force
     }
 }

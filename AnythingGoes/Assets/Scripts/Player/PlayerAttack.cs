@@ -16,6 +16,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     float maxWeaponCharge;
 
+    [SerializeField]
+    GameObject hand;
     float charge;
 
 
@@ -29,15 +31,17 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        Vector2 targetDirection = playerInput.InputPosition;
+        Vector2 targetDirection = (playerInput.InputPosition-(Vector2)this.transform.position).normalized;
         bool firing = playerInput.Firing;
         if (!charging && firing)
         {
+            charging = true;
             charge = Time.deltaTime;
             // Begin charging 
 
         }else if (charging && !firing)
         {
+            Debug.Log("Firing Weapon");
             FireWeapon(charge, targetDirection);
             charging = false;
             // Fire weapon
@@ -55,6 +59,9 @@ public class PlayerAttack : MonoBehaviour
 
     private void LookAt(Vector2 targetDirection)
     {
+        //targetDirection.z = hand.transform.position.z;
+       
+        hand.transform.right = targetDirection;
         // TODO point weapon in direction
     }
 
