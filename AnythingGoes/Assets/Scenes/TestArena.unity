@@ -1337,6 +1337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cfa5c3a6e0daea40966b65abf1e4567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grapplingGun: {fileID: 732435699}
   movement: {fileID: 732435691}
   playerInput: {fileID: 732435690}
   maxWeaponStrength: 10

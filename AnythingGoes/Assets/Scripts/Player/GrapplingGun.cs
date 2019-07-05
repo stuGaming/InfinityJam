@@ -19,6 +19,14 @@ public class GrapplingGun : MonoBehaviour
     private Collider2D latchedObject;
     private bool _chainExtended = false;
     private Rigidbody2D thisRigid;
+    internal bool grappling
+    {
+        get
+        {
+            return _chainExtended;
+        }
+    }
+
     private bool ChainExtended
     {
         get
@@ -31,7 +39,7 @@ public class GrapplingGun : MonoBehaviour
             Chain.gameObject.SetActive(_chainExtended);
            
            
-            // hook.SetActive(_chainExtended);
+             hook.SetActive(_chainExtended);
         }
     }
     // Use this for initialization
@@ -84,7 +92,8 @@ public class GrapplingGun : MonoBehaviour
     }
     private void CheckBreak()
     {
-        RaycastHit2D hit = Physics2D.Raycast(this.transform.position,    hook.transform.position - this.transform.position, 9);
+        LayerMask mask = LayerMask.NameToLayer("Terrain");
+        RaycastHit2D hit = Physics2D.Raycast(this.transform.position,    (hook.transform.position - this.transform.position), float.PositiveInfinity,1<<LayerMask.NameToLayer("Terrain"));
         Debug.DrawLine(this.transform.position, hook.transform.position, Color.red);
         if (hit.collider != latchedObject)
         {
@@ -111,7 +120,9 @@ public class GrapplingGun : MonoBehaviour
 
     private void SetupChain()
     {
-        RaycastHit2D hit = Physics2D.Raycast(muzzle.position, muzzle.right);
+        int mask = ~(LayerMask.NameToLayer("Terrain"));
+       
+        RaycastHit2D hit = Physics2D.Raycast(muzzle.position, muzzle.right,float.PositiveInfinity, 1 << LayerMask.NameToLayer("Terrain"));
         if (hit.collider!=null)
         {
             latchedObject = hit.collider;
@@ -120,7 +131,7 @@ public class GrapplingGun : MonoBehaviour
             hook.transform.position = hit.point;
             Chain.SetPosition(1, this.transform.position);
             Chain.SetPosition(0, hook.transform.position);
-            Debug.Log("Latched");
+            Debug.Log("Latched" + hit.transform.name + hit.transform.gameObject.layer);
             //thisRigid.velocity = Vector3.zero;
         }
         else

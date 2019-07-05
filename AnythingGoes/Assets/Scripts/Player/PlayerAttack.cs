@@ -6,6 +6,8 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField]
+    GrapplingGun grapplingGun;
+    [SerializeField]
     PlayerMovement movement;
     [SerializeField]
     PlayerInput playerInput;
@@ -36,7 +38,8 @@ public class PlayerAttack : MonoBehaviour
     {
         Vector2 targetDirection = (playerInput.InputPosition-(Vector2)this.transform.position).normalized;
         bool firing = playerInput.Firing;
-        currentCharge += Time.deltaTime *Mathf.Clamp(currentCharge/ maxWeaponCharge, 0.3f,0.8f);
+        if(!grapplingGun.grappling||charging)
+            currentCharge += Time.deltaTime *Mathf.Clamp(currentCharge/ maxWeaponCharge, 0.1f,0.6f);
         if (currentCharge > maxWeaponCharge)
             currentCharge = maxWeaponCharge;
         if (!charging && firing)
