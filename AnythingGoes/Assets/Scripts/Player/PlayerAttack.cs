@@ -99,7 +99,7 @@ public class PlayerAttack : MonoBehaviour
                 charge = currentCharge;
             }
             modifiedCharge = currentCharge - charge;
-            Debug.Log(modifiedCharge + "");
+          
             // Continue to charge weapon
         }
         else
