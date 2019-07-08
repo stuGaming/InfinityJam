@@ -11,12 +11,12 @@ public class PausableRigidbody : MonoBehaviour
     private void Start()
     {
         Mediator.RegisterHandler(GameEvents.PauseStateChanged, this, PauseChanged);
-
+        thisRigid = this.GetComponent<Rigidbody2D>();
     }
 
     private void PauseChanged(Message message)
     {
-        if (LevelController.Instance.GameIsPlaying)
+        if (!LevelController.Instance.GameIsPlaying)
         {
             velocity = thisRigid.velocity;
             angularVelocity = thisRigid.angularVelocity;

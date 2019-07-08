@@ -78,7 +78,9 @@ public class GrapplingGun : MonoBehaviour
 
     private void PullTowards()
     {
-        Debug.Log("Pulling");
+        if (!LevelController.Instance.GameIsPlaying)
+            return;
+       
         thisRigid.AddForce((pullForce * Time.deltaTime * (hook.transform.position - this.transform.position).normalized));
         //thisRigid.velocity = Vector3.zero;
        // thisRigid.MovePosition(this.transform.position + (pullForce * Time.deltaTime * (hook.transform.position - this.transform.position)));

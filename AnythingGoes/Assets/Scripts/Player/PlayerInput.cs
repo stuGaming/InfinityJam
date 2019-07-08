@@ -16,6 +16,8 @@ public class PlayerInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!LevelController.Instance.GameIsPlaying)
+            return;
         InputPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Firing = Input.GetButton("Fire");
         SecondaryFire = Input.GetButtonDown("SecondaryFire");

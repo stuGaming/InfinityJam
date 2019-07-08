@@ -55,7 +55,14 @@ public class LevelController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Mediator.SendMessage(GameEvents.PauseGame,GameEventProperties.Name,"LevelController");
+        }
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            Mediator.SendMessage(GameEvents.UnPauseGame, GameEventProperties.Name, "LevelController");
+        }
     }
     private void OnDestroy()
     {

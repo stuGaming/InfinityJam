@@ -2,5 +2,7 @@
 {
     CheckPointReached,
     ResetPlayer,
-    PauseGame
+    PauseGame,
+    UnPauseGame,
+    PauseStateChanged
 }

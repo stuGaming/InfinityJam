@@ -68,6 +68,8 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        if (!LevelController.Instance.GameIsPlaying)
+            return;
         Vector2 targetDirection = (playerInput.InputPosition-(Vector2)this.transform.position).normalized;
         bool firing = playerInput.Firing;
         if(!grapplingGun.grappling||charging)
