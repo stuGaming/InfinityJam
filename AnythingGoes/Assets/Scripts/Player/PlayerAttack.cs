@@ -12,18 +12,46 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     PlayerInput playerInput;
     [SerializeField]
+    PlayerStats playerStats;
+    [SerializeField]
     float maxWeaponStrength;
     [SerializeField]
     float minWeaponStrength;
     [SerializeField]
-    float maxWeaponCharge;
+    float maxWeaponCharge
+    {
+        get
+        {
+            return playerStats.maxWeaponCharge;
+        }
+    }
 
     [SerializeField]
     GameObject hand;
     float charge;
 
-    float currentCharge;
-    float modifiedCharge;
+    float currentCharge
+    {
+        get
+        {
+            return playerStats.currentCharge;
+        }
+        set
+        {
+            playerStats.currentCharge= value;
+        }
+    }
+    float modifiedCharge
+    {
+        get
+        {
+            return playerStats.modifiedCharge;
+        }
+        set
+        {
+            playerStats.modifiedCharge = value;
+        }
+    }
 
     bool charging = false;
     // Start is called before the first frame update
@@ -32,7 +60,7 @@ public class PlayerAttack : MonoBehaviour
         currentCharge = maxWeaponCharge;
         modifiedCharge = maxWeaponCharge;
     }
-
+    
     // Update is called once per frame
     void LateUpdate()
     {

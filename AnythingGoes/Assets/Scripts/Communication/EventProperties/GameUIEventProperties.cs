@@ -1,5 +1,6 @@
 ﻿public enum GameUIEventProperties
 {
     AvailableCharge,
-    PreviousCharge
+    PreviousCharge,
+    Health
 }
