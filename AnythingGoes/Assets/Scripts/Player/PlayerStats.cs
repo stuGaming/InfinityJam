@@ -51,7 +51,7 @@ public class PlayerStats : MonoBehaviour
     void Start()
     {
         CurrentHealth = maxHealth;
-        GameResources.Instance.RegisterPlayer(this);
+        LevelController.Instance.RegisterPlayer(this);
     }
 
     

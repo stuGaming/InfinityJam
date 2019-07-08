@@ -1,5 +1,6 @@
 ﻿public enum GameEvents
 {
     CheckPointReached,
-    ResetPlayer
+    ResetPlayer,
+    PauseGame
 }

@@ -81,11 +81,14 @@
     <Compile Include="Assets\Scripts\Communication\Events\GameEvents.cs" />
     <Compile Include="Assets\Scripts\Communication\Events\GameUIEvents.cs" />
     <Compile Include="Assets\Scripts\Enemies\BasicPlatformPatrolAI.cs" />
+    <Compile Include="Assets\Scripts\Enemies\EnemyStats.cs" />
     <Compile Include="Assets\Scripts\Enemies\FlyingEnemy.cs" />
     <Compile Include="Assets\Scripts\Environment\InstantKillTrigger.cs" />
     <Compile Include="Assets\Scripts\GameResources\CheckPoint\CheckPoint.cs" />
     <Compile Include="Assets\Scripts\GameResources\CheckPoint\CheckPointController.cs" />
     <Compile Include="Assets\Scripts\GameResources\GameResources.cs" />
+    <Compile Include="Assets\Scripts\GameResources\LevelController.cs" />
+    <Compile Include="Assets\Scripts\GameResources\PausableRigidbody.cs" />
     <Compile Include="Assets\Scripts\Player\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Player\GrapplingGun.cs" />
     <Compile Include="Assets\Scripts\Player\HUD\HealthBar.cs" />
@@ -98,6 +101,7 @@
     <Compile Include="Assets\Scripts\Player\PlayerInput.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerStats.cs" />
+    <Compile Include="Assets\Scripts\Player\Projectiles\BaseProjectile.cs" />
     <Compile Include="Assets\Scripts\Player\VelocityDamage.cs" />
     <Compile Include="Assets\Scripts\UI\StartScreenController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
@@ -175,6 +179,9 @@
     <Reference Include="Unity.2D.PixelPerfect.Editor">
       <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/Unity.2D.PixelPerfect.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="com.unity.multiplayer-hlapi.Editor">
+      <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
@@ -205,6 +212,12 @@
     <Reference Include="Unity.Postprocessing.Editor">
       <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="com.unity.multiplayer-weaver.Editor">
+      <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.XR.LegacyInputHelpers">
+      <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
@@ -223,6 +236,12 @@
     <Reference Include="Unity.2D.PixelPerfect">
       <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/Unity.2D.PixelPerfect.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEditor.SpatialTracking">
+      <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpatialTracking">
+      <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
       <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
@@ -235,29 +254,14 @@
     <Reference Include="Unity.TextMeshPro">
       <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.ugui.Editor">
-      <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/Unity.ugui.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.multiplayer-hlapi.Editor">
-      <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="com.unity.multiplayer-weaver.Editor">
-      <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.XR.LegacyInputHelpers">
-      <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.SpatialTracking">
-      <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.SpatialTracking">
-      <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
       <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.XR.LegacyInputHelpers">
       <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ugui.Editor">
+      <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/Unity.ugui.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.multiplayer-hlapi.Runtime">
       <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>

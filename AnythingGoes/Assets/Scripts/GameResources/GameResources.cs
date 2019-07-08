@@ -6,7 +6,9 @@ public class GameResources : MonoBehaviour
     public static GameResources Instance;
 
     public int CurrentGameLevel { get; internal set; }
-    public PlayerStats player;
+  
+
+
     // Use this for initialization
     void Awake()
     {
@@ -26,10 +28,7 @@ public class GameResources : MonoBehaviour
             }
         }
     }
-    public void RegisterPlayer(PlayerStats stats)
-    {
-        player = stats;
-    }
+   
 
     // Update is called once per frame
     void Update()

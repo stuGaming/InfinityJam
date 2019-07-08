@@ -100,7 +100,8 @@ public class BasicPlatformPatrolAI : MonoBehaviour
                 anim.SetBool("Run", false);
             if (Time.time - lastAttack > attackRate)
             {
-                target.GetComponent<PlayerStats>().Damage(attackStrength);
+                if(target.GetComponent<PlayerStats>()!=null)
+                    target.GetComponent<PlayerStats>().Damage(attackStrength);
                 if (anim != null)
                     anim.SetTrigger("Slash");
                 lastAttack = Time.time;

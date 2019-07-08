@@ -30,9 +30,9 @@ public class FlyingEnemy : MonoBehaviour
     {
         if (target != null)
             return;
-        if(Mathf.Abs((this.transform.position - GameResources.Instance.player.transform.position).magnitude)<AttackRange)
+        if(Mathf.Abs((this.transform.position - LevelController.Instance.player.transform.position).magnitude)<AttackRange)
         {
-            RaycastHit2D hit = Physics2D.Raycast(this.transform.position, GameResources.Instance.player.transform.position - this.transform.position);
+            RaycastHit2D hit = Physics2D.Raycast(this.transform.position, LevelController.Instance.player.transform.position - this.transform.position);
             PlayerStats player = hit.transform.GetComponent<PlayerStats>();
             if (player != null)
             {
