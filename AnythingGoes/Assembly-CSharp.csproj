@@ -80,13 +80,19 @@
     <Compile Include="Assets\Scripts\Communication\EventProperties\GameUIEventProperties.cs" />
     <Compile Include="Assets\Scripts\Communication\Events\GameEvents.cs" />
     <Compile Include="Assets\Scripts\Communication\Events\GameUIEvents.cs" />
+    <Compile Include="Assets\Scripts\Enemies\BasicPlatformPatrolAI.cs" />
+    <Compile Include="Assets\Scripts\Enemies\FlyingEnemy.cs" />
     <Compile Include="Assets\Scripts\Environment\InstantKillTrigger.cs" />
     <Compile Include="Assets\Scripts\GameResources\CheckPoint\CheckPoint.cs" />
     <Compile Include="Assets\Scripts\GameResources\CheckPoint\CheckPointController.cs" />
     <Compile Include="Assets\Scripts\GameResources\GameResources.cs" />
     <Compile Include="Assets\Scripts\Player\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Player\GrapplingGun.cs" />
+    <Compile Include="Assets\Scripts\Player\HUD\HealthBar.cs" />
     <Compile Include="Assets\Scripts\Player\HUD\WeaponCharge.cs" />
+    <Compile Include="Assets\Scripts\Player\Pickups\BasePickup.cs" />
+    <Compile Include="Assets\Scripts\Player\Pickups\ChargeRefresh.cs" />
+    <Compile Include="Assets\Scripts\Player\Pickups\HealthPickup.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerAttack.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerInput.cs" />
@@ -231,6 +237,30 @@
     </Reference>
     <Reference Include="Unity.ugui.Editor">
       <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/Unity.ugui.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.multiplayer-hlapi.Editor">
+      <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.multiplayer-weaver.Editor">
+      <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/com.unity.multiplayer-weaver.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.XR.LegacyInputHelpers">
+      <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/UnityEngine.XR.LegacyInputHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.SpatialTracking">
+      <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/UnityEditor.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpatialTracking">
+      <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/UnityEngine.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.DataPrivacy">
+      <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.XR.LegacyInputHelpers">
+      <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/UnityEditor.XR.LegacyInputHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="com.unity.multiplayer-hlapi.Runtime">
+      <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0a5/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -405,6 +435,15 @@
     </Reference>
     <Reference Include="UnityEngine.XRModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0a5/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.Editor">
+      <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.StandardEvents">
+      <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Analytics.Tracker">
+      <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0a5/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>

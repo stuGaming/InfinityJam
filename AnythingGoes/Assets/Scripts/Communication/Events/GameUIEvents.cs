@@ -1,4 +1,6 @@
 ﻿public enum GameUIEvents
 {
-    UpdateWeaponCharge
+    UpdateWeaponCharge,
+    HealthUpdate,
+    Health
 }
