@@ -24,12 +24,36 @@ public class LevelController : MonoBehaviour
     }
     public List<string> pauseObjects = new List<string>();
 
-    // Use this for initialization
-    void Start()
+    internal void UnpauseAll()
+    {
+        pauseObjects = new List<string>();
+        Mediator.SendMessage(GameEvents.PauseStateChanged);
+    }
+    public void StartGame()
+    {
+        GameIsStarted = true;
+        pauseObjects = new List<string>();
+        Mediator.SendMessage(GameEvents.PauseStateChanged);
+
+    }
+    public void EndGame()
+    {
+        GameIsStarted = false;
+        pauseObjects = new List<string>();
+        Mediator.SendMessage(GameEvents.PauseStateChanged);
+
+    }
+    void Awake()
     {
         Instance = this;
+    }
+        // Use this for initialization
+    void Start()
+    {
+       
         Mediator.RegisterHandler(GameEvents.PauseGame,this,PauseGame);
         Mediator.RegisterHandler(GameEvents.UnPauseGame, this, UnPauseGame);
+        Invoke("StartGame", 3);
     }
 
     private void UnPauseGame(Message message)
@@ -39,6 +63,14 @@ public class LevelController : MonoBehaviour
         {
             pauseObjects.Remove(name);
             Mediator.SendMessage(GameEvents.PauseStateChanged);
+        }
+        if (GameIsStarted && GameIsPaused)
+        {
+            Mediator.SendMessage(GameUIEvents.ShowPausePanel);
+        }
+        else if(GameIsStarted&&!GameIsPaused)
+        {
+            Mediator.SendMessage(GameUIEvents.HidePausePanel);
         }
     }
 
@@ -50,16 +82,24 @@ public class LevelController : MonoBehaviour
             pauseObjects.Add(name);
             Mediator.SendMessage(GameEvents.PauseStateChanged);
         }
+        if (GameIsStarted && GameIsPaused)
+        {
+            Mediator.SendMessage(GameUIEvents.ShowPausePanel);
+        }
+        else if (GameIsStarted && !GameIsPaused)
+        {
+            Mediator.SendMessage(GameUIEvents.HidePausePanel);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.Escape)&&GameIsStarted&&!GameIsPaused)
         {
             Mediator.SendMessage(GameEvents.PauseGame,GameEventProperties.Name,"LevelController");
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        else if (Input.GetKeyUp(KeyCode.Escape) && GameIsStarted && GameIsPaused)
         {
             Mediator.SendMessage(GameEvents.UnPauseGame, GameEventProperties.Name, "LevelController");
         }

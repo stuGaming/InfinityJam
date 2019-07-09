@@ -12,6 +12,7 @@ public class PausableRigidbody : MonoBehaviour
     {
         Mediator.RegisterHandler(GameEvents.PauseStateChanged, this, PauseChanged);
         thisRigid = this.GetComponent<Rigidbody2D>();
+        PauseChanged(null);
     }
 
     private void PauseChanged(Message message)

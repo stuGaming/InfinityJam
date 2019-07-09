@@ -5,8 +5,21 @@ public class GameResources : MonoBehaviour
 {
     public static GameResources Instance;
 
-    public int CurrentGameLevel { get; internal set; }
-  
+    public int CurrentGameLevel { get {
+            int x = 1;
+            if (PlayerPrefs.HasKey("PlayerLevel"))
+            {
+                x = PlayerPrefs.GetInt("PlayerLevel");
+            }
+            return x;
+
+
+        } internal set {
+            PlayerPrefs.SetInt("PlayerLevel", value);
+
+        } }
+    public int MaxLevels { get; internal set; }
+
 
 
     // Use this for initialization
@@ -15,17 +28,14 @@ public class GameResources : MonoBehaviour
         if (GameResources.Instance != null)
         {
             Debug.Log("Cant have more than one game resources");
-            this.gameObject.SetActive(false);
+            Destroy(this.gameObject);
         }
         else
         {
             DontDestroyOnLoad(this.gameObject);
             Instance = this;
-            CurrentGameLevel = 0;
-            if (PlayerPrefs.HasKey("PlayerLevel"))
-            {
-                CurrentGameLevel = PlayerPrefs.GetInt("PlayerLevel");
-            }
+            CurrentGameLevel = 1;
+            
         }
     }
    

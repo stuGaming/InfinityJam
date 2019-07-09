@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\Enemies\EnemyStats.cs" />
     <Compile Include="Assets\Scripts\Enemies\FlyingEnemy.cs" />
     <Compile Include="Assets\Scripts\Environment\InstantKillTrigger.cs" />
+    <Compile Include="Assets\Scripts\Environment\LevelCompleteTrigger.cs" />
     <Compile Include="Assets\Scripts\GameResources\CheckPoint\CheckPoint.cs" />
     <Compile Include="Assets\Scripts\GameResources\CheckPoint\CheckPointController.cs" />
     <Compile Include="Assets\Scripts\GameResources\GameResources.cs" />
@@ -103,6 +104,9 @@
     <Compile Include="Assets\Scripts\Player\PlayerStats.cs" />
     <Compile Include="Assets\Scripts\Player\Projectiles\BaseProjectile.cs" />
     <Compile Include="Assets\Scripts\Player\VelocityDamage.cs" />
+    <Compile Include="Assets\Scripts\UI\GameOverUI.cs" />
+    <Compile Include="Assets\Scripts\UI\LevelCompleteUI.cs" />
+    <Compile Include="Assets\Scripts\UI\PauseUI.cs" />
     <Compile Include="Assets\Scripts\UI\StartScreenController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />

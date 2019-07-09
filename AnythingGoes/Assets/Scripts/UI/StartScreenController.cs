@@ -8,7 +8,7 @@ public class StartScreenController : MonoBehaviour
     Button LoadGameBuuton;
     public void ClickNewGame()
     {
-
+        TransitionManager.Instance.LoadScene("Level1");
     }
     public void ClickLoadGame()
     {
@@ -24,7 +24,7 @@ public class StartScreenController : MonoBehaviour
     }
     private void Start()
     {
-        if (GameResources.Instance.CurrentGameLevel>0)
+        if (GameResources.Instance.CurrentGameLevel>1)
         {
             LoadGameBuuton.interactable = true;
         }

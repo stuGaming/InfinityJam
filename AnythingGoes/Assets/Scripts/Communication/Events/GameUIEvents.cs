@@ -2,5 +2,8 @@
 {
     UpdateWeaponCharge,
     HealthUpdate,
-    Health
+    Health,
+    ShowPausePanel,
+    HidePausePanel,
+    ShowLevelComplete
 }
