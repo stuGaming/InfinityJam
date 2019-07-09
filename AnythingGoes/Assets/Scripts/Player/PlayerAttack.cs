@@ -18,6 +18,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField]
     float minWeaponStrength;
     [SerializeField]
+    BaseProjectile bullet;
+    [SerializeField]
     float maxWeaponCharge
     {
         get
@@ -28,6 +30,8 @@ public class PlayerAttack : MonoBehaviour
 
     [SerializeField]
     GameObject hand;
+    [SerializeField]
+    Transform Muzzle;
     float charge;
 
     float currentCharge
@@ -64,6 +68,8 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        if (!LevelController.Instance.GameIsPlaying)
+            return;
         Vector2 targetDirection = (playerInput.InputPosition-(Vector2)this.transform.position).normalized;
         bool firing = playerInput.Firing;
         if(!grapplingGun.grappling||charging)
@@ -93,7 +99,7 @@ public class PlayerAttack : MonoBehaviour
                 charge = currentCharge;
             }
             modifiedCharge = currentCharge - charge;
-            Debug.Log(modifiedCharge + "");
+          
             // Continue to charge weapon
         }
         else
@@ -115,7 +121,10 @@ public class PlayerAttack : MonoBehaviour
     private void FireWeapon(float charge, Vector2 targetDirection)
     {
         movement.ApplyForce(charge / maxWeaponCharge, targetDirection);
-
+        BaseProjectile b = Instantiate(bullet);
+        b.transform.position = Muzzle.transform.position;
+        b.transform.forward = Muzzle.transform.forward;
+        b.thisRigid.AddForce(Muzzle.right * 1000f);
         // Attack damage
     }
 }

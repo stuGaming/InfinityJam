@@ -1,4 +1,5 @@
 ﻿public enum GameEventProperties 
 {
-    CheckPoint
+    CheckPoint,
+    Name
 }

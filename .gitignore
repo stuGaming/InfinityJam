@@ -1,5 +1,5 @@
-AnythingGoes/Library/*
-AnythingGoes/ProjectSettings/*
 AnythingGoes/Temp/*
-AnythingGoes/Logs/*
+AnythingGoes/Library/*
+AnythingGoes/.vs/*
 AnythingGoes/obj/*
+AnythingGoes/Log/*

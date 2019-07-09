@@ -86,7 +86,8 @@ public class BasicPlatformPatrolAI : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        
+        if (!LevelController.Instance.GameIsPlaying)
+            return;
         if (Time.time - lastAttack < attackRate)
         {
             thisRigid.velocity = Vector3.zero;
@@ -100,7 +101,8 @@ public class BasicPlatformPatrolAI : MonoBehaviour
                 anim.SetBool("Run", false);
             if (Time.time - lastAttack > attackRate)
             {
-                target.GetComponent<PlayerStats>().Damage(attackStrength);
+                if(target.GetComponent<PlayerStats>()!=null)
+                    target.GetComponent<PlayerStats>().Damage(attackStrength);
                 if (anim != null)
                     anim.SetTrigger("Slash");
                 lastAttack = Time.time;
@@ -120,7 +122,8 @@ public class BasicPlatformPatrolAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+        if (!LevelController.Instance.GameIsPlaying)
+            return;
         RaycastHit2D hit;
         RaycastHit2D[] allHits = Physics2D.RaycastAll(transform.position, transform.right, lookDistance);
         Debug.DrawRay(transform.position, -1 * transform.right * lookDistance);

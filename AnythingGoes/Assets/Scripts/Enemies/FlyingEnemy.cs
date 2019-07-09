@@ -28,11 +28,13 @@ public class FlyingEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!LevelController.Instance.GameIsPlaying)
+            return;
         if (target != null)
             return;
-        if(Mathf.Abs((this.transform.position - GameResources.Instance.player.transform.position).magnitude)<AttackRange)
+        if(Mathf.Abs((this.transform.position - LevelController.Instance.player.transform.position).magnitude)<AttackRange)
         {
-            RaycastHit2D hit = Physics2D.Raycast(this.transform.position, GameResources.Instance.player.transform.position - this.transform.position);
+            RaycastHit2D hit = Physics2D.Raycast(this.transform.position, LevelController.Instance.player.transform.position - this.transform.position);
             PlayerStats player = hit.transform.GetComponent<PlayerStats>();
             if (player != null)
             {
@@ -43,6 +45,8 @@ public class FlyingEnemy : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (!LevelController.Instance.GameIsPlaying)
+            return;
         if (target != null)
         {
             thisRigid.MovePosition(this.transform.position + ((target.position - this.transform.position).normalized*AttackSpeed*Time.fixedDeltaTime));

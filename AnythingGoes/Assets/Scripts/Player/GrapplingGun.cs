@@ -15,6 +15,8 @@ public class GrapplingGun : MonoBehaviour
     [SerializeField]
     float pullForce;
     [SerializeField]
+    float maxDistance;
+    [SerializeField]
     float breakDistance;
     private Collider2D latchedObject;
     private bool _chainExtended = false;
@@ -78,7 +80,9 @@ public class GrapplingGun : MonoBehaviour
 
     private void PullTowards()
     {
-        Debug.Log("Pulling");
+        if (!LevelController.Instance.GameIsPlaying)
+            return;
+       
         thisRigid.AddForce((pullForce * Time.deltaTime * (hook.transform.position - this.transform.position).normalized));
         //thisRigid.velocity = Vector3.zero;
        // thisRigid.MovePosition(this.transform.position + (pullForce * Time.deltaTime * (hook.transform.position - this.transform.position)));
@@ -125,6 +129,13 @@ public class GrapplingGun : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(muzzle.position, muzzle.right,float.PositiveInfinity, 1 << LayerMask.NameToLayer("Terrain"));
         if (hit.collider!=null)
         {
+            if((hit.point - (Vector2)this.transform.position).sqrMagnitude > maxDistance)
+            {
+
+                Debug.Log("Missed all "+ (hit.point - (Vector2)this.transform.position).sqrMagnitude);
+                ChainExtended = false;
+                return;
+            }
             latchedObject = hit.collider;
             ChainExtended = true;
             Chain.positionCount = 2;
