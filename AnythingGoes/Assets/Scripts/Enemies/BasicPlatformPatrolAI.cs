@@ -102,7 +102,7 @@ public class BasicPlatformPatrolAI : MonoBehaviour
             thisRigid.velocity = Vector3.zero;
             if (anim != null)
                 anim.SetBool("Run", false);
-            if (Time.time - lastAttack > attackRate)
+            if (Time.time - lastAttack > attackRate&& target != null && (target.position - this.transform.position).sqrMagnitude < AttackDistance)
             {
                 StartCoroutine(WaitAndExplode());
                 attackRate = 100f;

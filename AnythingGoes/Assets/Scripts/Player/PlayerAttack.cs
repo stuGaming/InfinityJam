@@ -122,7 +122,7 @@ public class PlayerAttack : MonoBehaviour
     {
         movement.ApplyForce(charge / maxWeaponCharge, targetDirection);
         BaseProjectile b = Instantiate(bullet,LevelController.Instance.ProjectileParent);
-        b.SetSize(1 + (2*charge/maxWeaponCharge));
+        b.SetSize(1.1f + (3*charge/maxWeaponCharge));
         b.transform.position = Muzzle.transform.position;
         b.transform.forward = Muzzle.transform.forward;
         b.thisRigid.AddForce(Muzzle.right * 1000f);

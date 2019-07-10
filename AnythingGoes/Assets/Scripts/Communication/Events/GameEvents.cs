@@ -4,5 +4,6 @@
     ResetPlayer,
     PauseGame,
     UnPauseGame,
-    PauseStateChanged
+    PauseStateChanged,
+    AudioSwitch
 }

@@ -88,6 +88,8 @@
     <Compile Include="Assets\Scripts\Environment\Explosion.cs" />
     <Compile Include="Assets\Scripts\Environment\InstantKillTrigger.cs" />
     <Compile Include="Assets\Scripts\Environment\LevelCompleteTrigger.cs" />
+    <Compile Include="Assets\Scripts\Environment\Music\BackGroundMusicController.cs" />
+    <Compile Include="Assets\Scripts\Environment\Music\MusicSwitch.cs" />
     <Compile Include="Assets\Scripts\GameResources\CheckPoint\CheckPoint.cs" />
     <Compile Include="Assets\Scripts\GameResources\CheckPoint\CheckPointController.cs" />
     <Compile Include="Assets\Scripts\GameResources\GameResources.cs" />
@@ -189,6 +191,9 @@
     <Reference Include="com.unity.multiplayer-hlapi.Editor">
       <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.ProGrids">
+      <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
@@ -197,6 +202,9 @@
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime">
       <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProGrids.Editor">
+      <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
@@ -272,12 +280,6 @@
     </Reference>
     <Reference Include="com.unity.multiplayer-hlapi.Runtime">
       <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProGrids">
-      <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.ProGrids.Editor">
-      <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0a5/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

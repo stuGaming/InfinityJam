@@ -1,5 +1,6 @@
 ﻿public enum GameEventProperties 
 {
     CheckPoint,
-    Name
+    Name,
+    Audio
 }
