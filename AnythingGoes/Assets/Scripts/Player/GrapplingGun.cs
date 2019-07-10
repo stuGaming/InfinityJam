@@ -21,6 +21,7 @@ public class GrapplingGun : MonoBehaviour
     private Collider2D latchedObject;
     private bool _chainExtended = false;
     private Rigidbody2D thisRigid;
+    
     internal bool grappling
     {
         get
@@ -103,7 +104,11 @@ public class GrapplingGun : MonoBehaviour
         {
             
             ChainExtended = false;
-            Debug.Log("Released1");
+           
+        }else if(Mathf.Abs((hit.point - (Vector2)hook.transform.position).magnitude)>0.5f)
+        {
+            ChainExtended = false;
+            
         }
         else if (Mathf.Abs((hook.transform.position - this.transform.position).magnitude) < breakDistance)
         {

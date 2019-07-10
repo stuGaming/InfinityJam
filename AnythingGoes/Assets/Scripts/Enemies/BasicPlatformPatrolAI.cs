@@ -1,9 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class BasicPlatformPatrolAI : MonoBehaviour
 {
+    [SerializeField]
+    Explosion explosion;
     public Transform inFront;
     public Transform target;
     public float PatrolSpeed;
@@ -101,10 +104,11 @@ public class BasicPlatformPatrolAI : MonoBehaviour
                 anim.SetBool("Run", false);
             if (Time.time - lastAttack > attackRate)
             {
-                if(target.GetComponent<PlayerStats>()!=null)
-                    target.GetComponent<PlayerStats>().Damage(attackStrength);
-                if (anim != null)
-                    anim.SetTrigger("Slash");
+                StartCoroutine(WaitAndExplode());
+                attackRate = 100f;
+               
+               
+               
                 lastAttack = Time.time;
             }
            
@@ -119,6 +123,32 @@ public class BasicPlatformPatrolAI : MonoBehaviour
         }
 
     }
+
+    private IEnumerator WaitAndExplode()
+    {
+        float timer = 0;
+        while (timer < 1)
+        {
+            transform.localScale = transform.localScale * (1 + (Time.deltaTime/5));
+            timer += Time.deltaTime;
+            yield return null;
+        }
+       
+            
+    
+       
+        
+        if (target != null && (target.position - this.transform.position).sqrMagnitude < AttackDistance*2)
+        {
+            if (target.GetComponent<PlayerStats>() != null)
+                target.GetComponent<PlayerStats>().Damage(attackStrength);
+        }
+        Explosion e = Instantiate(explosion);
+        e.transform.position = this.transform.position;
+        e.SetExplosion(Color.red, 4);
+        Destroy(this.gameObject);
+    }
+
     // Update is called once per frame
     void Update()
     {

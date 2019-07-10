@@ -72,7 +72,7 @@ public class PlayerAttack : MonoBehaviour
             return;
         Vector2 targetDirection = (playerInput.InputPosition-(Vector2)this.transform.position).normalized;
         bool firing = playerInput.Firing;
-        if(!grapplingGun.grappling||charging)
+        if(!grapplingGun.grappling&&!charging)
             currentCharge += Time.deltaTime *Mathf.Clamp(currentCharge/ maxWeaponCharge, 0.1f,0.6f);
         if (currentCharge > maxWeaponCharge)
             currentCharge = maxWeaponCharge;
@@ -121,10 +121,12 @@ public class PlayerAttack : MonoBehaviour
     private void FireWeapon(float charge, Vector2 targetDirection)
     {
         movement.ApplyForce(charge / maxWeaponCharge, targetDirection);
-        BaseProjectile b = Instantiate(bullet);
+        BaseProjectile b = Instantiate(bullet,LevelController.Instance.ProjectileParent);
+        b.SetSize(1 + (2*charge/maxWeaponCharge));
         b.transform.position = Muzzle.transform.position;
         b.transform.forward = Muzzle.transform.forward;
         b.thisRigid.AddForce(Muzzle.right * 1000f);
+        b.strength = 150f * charge;
         // Attack damage
     }
 }

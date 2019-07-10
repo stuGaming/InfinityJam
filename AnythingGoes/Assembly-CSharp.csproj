@@ -83,6 +83,9 @@
     <Compile Include="Assets\Scripts\Enemies\BasicPlatformPatrolAI.cs" />
     <Compile Include="Assets\Scripts\Enemies\EnemyStats.cs" />
     <Compile Include="Assets\Scripts\Enemies\FlyingEnemy.cs" />
+    <Compile Include="Assets\Scripts\Enemies\StaticTurret.cs" />
+    <Compile Include="Assets\Scripts\Enemies\TurretEnemy.cs" />
+    <Compile Include="Assets\Scripts\Environment\Explosion.cs" />
     <Compile Include="Assets\Scripts\Environment\InstantKillTrigger.cs" />
     <Compile Include="Assets\Scripts\Environment\LevelCompleteTrigger.cs" />
     <Compile Include="Assets\Scripts\GameResources\CheckPoint\CheckPoint.cs" />
@@ -269,6 +272,12 @@
     </Reference>
     <Reference Include="com.unity.multiplayer-hlapi.Runtime">
       <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/com.unity.multiplayer-hlapi.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProGrids">
+      <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/Unity.ProGrids.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProGrids.Editor">
+      <HintPath>D:/Unity Projects/InfintyJam/AnythingGoes/Library/ScriptAssemblies/Unity.ProGrids.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0a5/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

@@ -7,15 +7,13 @@ public class EnemyStats : MonoBehaviour
     float maxHealth;
     public float Health;
     public float Damage;
-    // Use this for initialization
-    void Start()
+    public void TakeDamage(float x)
     {
-
+        Health -= x;
+        if (Health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    
 }

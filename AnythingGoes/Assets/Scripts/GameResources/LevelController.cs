@@ -7,6 +7,7 @@ public class LevelController : MonoBehaviour
 {
     public static LevelController Instance;
     public PlayerStats player;
+    public Transform ProjectileParent;
     public bool GameIsPlaying
     {
         get
