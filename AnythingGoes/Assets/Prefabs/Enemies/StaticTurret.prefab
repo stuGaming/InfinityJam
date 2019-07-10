@@ -338,7 +338,7 @@ MonoBehaviour:
   Hinge: {fileID: 2823605457746687251}
   Muzzle: {fileID: 2823605457429682974}
   AttackRange: 0
-  FireRate: 1
+  FireRate: 1.1
   projectile: {fileID: 4170600179280048760, guid: a687a356de6d40547826d4e337398f32,
     type: 3}
 --- !u!58 &1911520645544219726
